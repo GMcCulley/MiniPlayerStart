@@ -45,6 +45,15 @@
     <length>2:21</length>
     <genre>Pop</genre>
   </song>
+  <song>
+    <id>6</id>
+    <title>NEW SONG</title>
+    <artist>ARTIST</artist>
+    <album>ALBUM</album>
+    <filename>C:\Users\cube\Music\songs</filename>
+    <length>2:21</length>
+    <genre>Pop</genre>
+  </song>
   <playlist>
     <name>Cool stuff</name>
   </playlist>
