@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniPlayerWpf"
         mc:Ignorable="d"
-        Title="MiniPlayer" Height="150" Width="225" MinHeight="150" MinWidth="225">
+        Title="MiniPlayer" Height="199" Width="335" MinHeight="150" MinWidth="225">
 
     <Grid>
-        <Label HorizontalContentAlignment="Right" Content="ID" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="68"/>
-        <ComboBox x:Name="songIdComboBox" HorizontalAlignment="Left" Height="25" Margin="78,10,0,0" 
+        <Label HorizontalContentAlignment="Right" Content="ID" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Width="68"/>
+        <ComboBox x:Name="songIdComboBox" HorizontalAlignment="Center" Height="25" Margin="0,10,20,0" 
                   VerticalAlignment="Top" Width="60" SelectionChanged="songIdComboBox_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -17,8 +17,15 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Label x:Name="songTitle" Content="title" Height="30" />
-        <Button x:Name="playButton" Content="Play" Margin="10,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="75" Click="playButton_Click"/>
+        <Label x:Name="songTitle" Content="title" Height="30" Margin="0,36,0,92"/>
+        <Label x:Name="songArtist" Content="Artist" Height="30" Margin="0,51,0,77"/>
+        <Label x:Name="songAlbum" Content="Album" Height="30" Margin="0,66,-1,62"/>
+        <Label x:Name="songGenre" Content="Genre" Height="30" Margin="0,81,0,47"/>
+        <Label x:Name="songLength" Content="Length" Height="30" Margin="0,96,1,32"/>
+        <Label x:Name="songFilename" Content="Filename" Height="30" Margin="0,123,0,30"/>
+        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Width="75" Click="addButton_Click"/>
+        <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="90,0,0,10" Width="75" Click="deleteButton_Clicked"/>
+        <Button x:Name="playButton" Content="Play" Margin="0,0,90,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Click="playButton_Click"/>
         <Button x:Name="stopButton" Content="Stop" Margin="0,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Click="stopButton_Click"/>
     </Grid>
 </Window>

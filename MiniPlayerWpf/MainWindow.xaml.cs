@@ -53,9 +53,44 @@ namespace MiniPlayerWpf
                 int songId = Convert.ToInt32(songIdComboBox.SelectedItem);
                 Song s = musicRepo.GetSong(songId);
                 songTitle.Content = s.Title;
+                songAlbum.Content = s.Album;
+                songArtist.Content = s.Artist;
+                songGenre.Content = s.Genre;
+                songFilename.Content = s.Filename;
+                songLength.Content = s.Length;
                 mediaPlayer.Open(new Uri(s.Filename));
             }
-        }        
+        }  
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            var openFileDialog = new Microsoft.Win32.OpenFileDialog
+            {
+                FileName = "",
+                DefaultExt = "*.wma;*.wav;*mp3;*.m4a",
+                Filter = "Media files|*.mp3;*.m4a;*.wma;*.wav|MP3 (*.mp3)|*.mp3|M4A (*.m4a)|*.m4a|Windows Media Audio (*.wma)|*.wma|Wave files (*.wav)|*.wav|All files|*.*"
+            };
+
+            bool? result = openFileDialog.ShowDialog();
+            if (result == true)
+            {
+                // Selected file is openFileDialog.FileName
+                Song s = musicRepo.GetSongDetails(openFileDialog.FileName);
+                musicRepo.AddSong(s);
+                musicRepo.Save();
+                songIds.Add(s.Id);
+                songIdComboBox.SelectedIndex = s.Id;
+            }
+        }
+
+        private void deleteButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            musicRepo.DeleteSong((int)songIdComboBox.SelectedItem);
+            musicRepo.Save();
+            songIds.Remove((int)songIdComboBox.SelectedItem);
+            if (songIdComboBox.Items.Count > 0)
+                songIdComboBox.SelectedItem = 0;
+        }
 
         private void playButton_Click(object sender, RoutedEventArgs e)
         {
