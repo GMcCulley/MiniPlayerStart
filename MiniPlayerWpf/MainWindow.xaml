@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniPlayerWpf"
         mc:Ignorable="d"
-        Title="MiniPlayer" Height="199" Width="335" MinHeight="150" MinWidth="225">
+        Title="MiniPlayer" Height="199" Width="335" MinHeight="225" MinWidth="375">
 
     <Grid>
         <Label HorizontalContentAlignment="Right" Content="ID" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Width="68"/>
@@ -17,7 +17,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Label x:Name="songTitle" Content="title" Height="30" Margin="0,36,0,92"/>
+        <Label x:Name="songTitle" Content="Title" Height="30" Margin="0,36,0,92"/>
         <Label x:Name="songArtist" Content="Artist" Height="30" Margin="0,51,0,77"/>
         <Label x:Name="songAlbum" Content="Album" Height="30" Margin="0,66,-1,62"/>
         <Label x:Name="songGenre" Content="Genre" Height="30" Margin="0,81,0,47"/>

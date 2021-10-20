@@ -60,6 +60,15 @@ namespace MiniPlayerWpf
                 songLength.Content = s.Length;
                 mediaPlayer.Open(new Uri(s.Filename));
             }
+            else
+            {
+                songTitle.Content = "No Song Selected";
+                songAlbum.Content = "No Album";
+                songArtist.Content = "No Artist";
+                songGenre.Content = "No Genre";
+                songFilename.Content = "No Song Selected";
+                songLength.Content = "No Song Selected";
+            }
         }  
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -79,7 +88,7 @@ namespace MiniPlayerWpf
                 musicRepo.AddSong(s);
                 musicRepo.Save();
                 songIds.Add(s.Id);
-                songIdComboBox.SelectedIndex = s.Id;
+                songIdComboBox.SelectedIndex = songIds.Count - 1;
             }
         }
 
@@ -89,7 +98,16 @@ namespace MiniPlayerWpf
             musicRepo.Save();
             songIds.Remove((int)songIdComboBox.SelectedItem);
             if (songIdComboBox.Items.Count > 0)
-                songIdComboBox.SelectedItem = 0;
+                songIdComboBox.SelectedIndex = 0;
+            else
+            {
+                songTitle.Content = "No Song Selected";
+                songAlbum.Content = "No Album";
+                songArtist.Content = "No Artist";
+                songGenre.Content = "No Genre";
+                songFilename.Content = "No Song Selected";
+                songLength.Content = "No Song Selected";
+            }    
         }
 
         private void playButton_Click(object sender, RoutedEventArgs e)
